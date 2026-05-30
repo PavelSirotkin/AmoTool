@@ -1,0 +1,56 @@
+.opencode
+.claude
+
+# Settings and credentials
+settings.json
+*.env
+.env.local
+
+# Build artifacts
+build/
+dist/
+*.spec
+*.exe
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Chrome profile
+UserProfile/
+chromedriver/
+
+# Диагностические дампы рассылки (скриншоты/HTML)
+debug/
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.txt
+
+# Archives
+*.7z
+*.zip
+*.rar
+
+# OS
+.DS_Store
+Thumbs.db
