@@ -41,8 +41,9 @@
 
 ### Инфраструктура
 - Автообновление через GitHub Releases с проверкой SHA256.
-- Двухветочная релизная модель (`master` для разработки, `release` для тегов) через скрипт `release.ps1`.
-- Покрытие 100+ юнит-тестами (`tests/test_core.py`).
+- Сборка в один exe через Nuitka (`build.py`): Python компилируется в машинный код, исходники из exe не извлекаются.
+- Двухветочная релизная модель (`master` для разработки, `release` для тегов) через скрипт `release-nuitka.ps1`.
+- Покрытие 140+ юнит-тестами (`tests/test_core.py`).
 
 ## Архитектура
 
@@ -79,7 +80,7 @@ AmoCaller.exe (отдельный helper, ставится один раз)
 ## Технологии
 
 - **Python 3.14**, Tkinter, Selenium, BeautifulSoup, pystray, Pillow.
-- **PyInstaller** для сборки `.exe`.
+- **Nuitka** для сборки `.exe` (основная); **PyInstaller** — запасной вариант.
 - **Kotlin / Android Gradle Plugin 8.x** для CallServer.
 - **NanoHTTPD** на Android-стороне.
 
@@ -92,11 +93,14 @@ py -m pip install -r requirements.txt
 # Запуск из исходников
 py main.py
 
-# Тесты (141+)
+# Тесты (140+)
 py -m unittest tests.test_core
 
+# Сборка exe (Nuitka) → dist-nuitka\AmoTool.exe и AmoCaller.exe
+py build.py
+
 # Релизный билд
-.\release.ps1 -Version X.Y.Z -Notes "Описание изменений"
+.\release-nuitka.ps1 -Version X.Y.Z -Notes "Описание изменений"
 ```
 
 ## Лицензия
