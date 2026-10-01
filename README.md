@@ -92,7 +92,7 @@ py -m pip install -r requirements.txt
 # Запуск из исходников
 py main.py
 
-# Тесты (102+)
+# Тесты (141+)
 py -m unittest tests.test_core
 
 # Релизный билд
